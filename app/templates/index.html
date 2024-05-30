@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="static/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Cryptguard</title>
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+  /* padding: 20px; */
+}
+
+h1 {
+  color: #333;
+}
+
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 20px auto;
+  max-width: 400px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.uploadfile {
+  margin-bottom: 10px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.uploadfile{
+    font-size: 16px;
+    background: #add5ff;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px black;
+    width: 350px;
+    outline: none;
+    
+}
+
+</style>
+<body>
+    <h1>FILE ENCRYPTION AND DECRYPTION</h1>
+    <!-- <form action="/file_encryption" method="post" enctype="multipart/form-data">
+        <label for="key">Enter Your Secret Key for Encryption</label>
+        <input type="text" id="myinput" name="key" required><br>
+        <label for="file">Select File:</label>
+        <input type="file" class="uploadfile" name="file" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png" required><br>
+        <br>
+        <button type="submit">Encrypt File</button>
+    </form>
+    <br>
+    <form action="/file_decryption" method="post" enctype="multipart/form-data">
+        <label for="key">Enter Your Secret Key for Decryption</label>
+        <input type="text" id="myinput" name="key" required><br>
+        <label for="file">Select Encrypted File:</label>
+        <input type="file" class="uploadfile" name="file" accept=".enc" required><br>
+        <br>
+        <button type="submit">Decrypt File</button>
+    </form> -->
+    <form action="/file_encryption" method="post" enctype="multipart/form-data">
+        <label for="key">Enter Your 32 Byte Secret Key for Encryption</label>
+        <input type="text" id="myinput" name="key" required><br>
+        <label for="file">Select File:</label>
+        <input type="file" class="uploadfile" name="file" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png" required><br>
+        <br>
+        <button type="submit" name="encrypt">Encrypt File</button>
+    </form>
+
+    <!-- Decryption Form -->
+    <form action="/file_decryption" method="post" enctype="multipart/form-data">
+        <label for="key">Enter Your 32 Byte Secret Key for Decryption</label>
+        <input type="text" id="myinput" name="key" required><br>
+        <label for="file">Select Encrypted File:</label>
+        <input type="file" class="uploadfile" name="file" accept=".enc" required><br>
+        <br>
+        <button type="submit" name="decrypt">Decrypt File</button>
+    </form>
+</body>
+</html>
+{% endblock %}

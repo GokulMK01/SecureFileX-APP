@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Your template-specific content goes here -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+    rel="stylesheet"/>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <div class="login-box">
+    <form method="POST" action="{{ url_for('signup') }}">
+        <!-- <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br> -->
+        <br>
+        <label for="email">Email Address</label>
+        <!-- <input type="email"class="form-control" id="email"name="email" placeholder="Enter email"/> -->
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <!-- <label for="secret_pin">Secret PIN (4 characters):</label>
+        <input type="text" id="secret_pin" name="secret_pin" required> -->
+        <button type="submit">Sign Up</button>
+    </form>
+</div>
+</body>
+</html>
+{% endblock %}

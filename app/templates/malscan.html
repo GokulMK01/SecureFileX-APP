@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Malicious File Checker</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+
+    h1 {
+        text-align: center;
+        padding: 20px;
+        color: #333;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    input[type="file"],
+    input[type="text"],
+    input[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="submit"] {
+        background-color: #007BFF;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    li {
+            color: #d9534f; /* Red text color */
+            list-style: none;
+            font-weight: bold; /* Bold font */
+            font-size: 20px; /* Increase font size */
+            margin-bottom: 5px; /* Add spacing between list items */
+            text-align: center; /* Center-align text */
+        }
+</style>
+<body>
+    <h1>Malicious File Checker</h1>
+    <form action="/malscan" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload and Check">
+    </form>
+    <br>
+    <br>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</html>
+
+
+
+{% endblock %}

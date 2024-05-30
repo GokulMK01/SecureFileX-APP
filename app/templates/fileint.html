@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Version Comparison</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        text-align: center;
+    }
+
+    h1 {
+        text-align: center;
+        padding: 20px;
+        color: #333;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: left;
+    }
+
+    input[type="file"],
+    input[type="submit"],
+    input[type="text"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="submit"] {
+        background-color: #007BFF;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    #comparison-result {
+        font-weight: bold;
+        color: #d9534f;
+    }
+</style>
+<body>
+    <h1>File Version Comparison</h1>
+    
+    {% if uploaded_file_hash %}
+        <p>Uploaded File Hash: {{ uploaded_file_hash }}</p>
+    {% else %}
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".txt, .pdf, .jpg, .png">
+            <input type="submit" value="Upload and Calculate Hash">
+        </form>
+    {% endif %}
+    <form method="POST" id="hash-comparison-form">
+        <label for="old_hash">Old Hash:</label>
+        <input type="text" name="old_hash" id="old_hash" required><br>
+        <label for="new_hash">New Hash:</label>
+        <input type="text" name="new_hash" id="new_hash" required><br>
+        <input type="submit" value="Compare Hashes">
+    </form>
+
+    <p id="comparison-result"></p>
+
+    <script>
+        const form = document.getElementById('hash-comparison-form');
+        const oldHashInput = document.getElementById('old_hash');
+        const newHashInput = document.getElementById('new_hash');
+        const resultMessage = document.getElementById('comparison-result');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const oldHash = oldHashInput.value;
+            const newHash = newHashInput.value;
+
+            if (oldHash === newHash) {
+                resultMessage.textContent = 'Hashes match!';
+            } else {
+                resultMessage.textContent = 'Hashes do not match.';
+            }
+        });
+    </script>
+</body>
+</html>
+{% endblock %}

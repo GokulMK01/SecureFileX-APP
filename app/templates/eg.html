@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Petemoss&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
+*{
+	box-sizing: border-box;
+	font-family: "Cinzel", serif;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul li {
+	margin: 0;
+}
+
+main {
+	display: flex;
+	justify-content: center;
+	background-color: #d9d9d9;
+    /* width:900px;
+    height: 700px; */
+}
+
+.book {
+	--book-height: 100vh;
+	--book-ratio: 1.4;
+}
+
+.book > div {
+	height: var(--book-height);
+	width: calc(var(--book-height) / var(--book-ratio));
+	overflow: auto;
+	background-color: #0a0a0a;
+	transform: scale(0.9);
+	border-radius: 6px;
+	transform-origin: left;
+}
+
+.book-cover {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	z-index: 9;
+	text-align: center;
+	background: linear-gradient(135deg, black 25%, transparent 25%) -50px 0,
+		linear-gradient(225deg, black 25%, transparent 25%) -50px 0,
+		linear-gradient(315deg, black 25%, transparent 25%),
+		linear-gradient(45deg, black 25%, transparent 25%);
+	background-size: 2em 2em;
+	background-color: #232323;
+	color: white;
+	transition: transform 2s;
+}
+
+.book-cover::before {
+	content: "";
+	position: absolute;
+	width: 20px;
+	right: 20px;
+	top: 0;
+	bottom: 0;
+	background-color: #b11509;
+}
+
+h1 {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 98px;
+	font-weight: 300;
+	color: #dbd75d;
+}
+
+h2 {
+	font-size: 16px;
+}
+
+.separator {
+	--separator-size: 8px;
+	width: var(--separator-size);
+	height: var(--separator-size);
+	background-color: #dbd75d;
+	margin: 50px auto 60px auto;
+	border-radius: 50%;
+	position: relative;
+}
+
+.separator::after,
+.separator::before {
+	content: "";
+	position: absolute;
+	width: 12px;
+	background-color: white;
+	height: 2px;
+	top: calc(50% - 1px);
+}
+
+.separator::after {
+	left: 15px;
+}
+
+.separator::before {
+	right: 15px;
+}
+
+.book-content {
+	transform: scale(0.9) translateY(30px);
+	background-color: white !important;
+	transition: all 0.3s 1s;
+}
+
+.book-content h3,
+.book-content p {
+	opacity: 0;
+	transition: all 0.3s 0.3s;
+}
+
+h3 {
+	padding: 20px;
+	font-size: 16px;
+}
+
+p,
+ul li {
+	padding: 0px 30px 10px 30px;
+	text-align: justify;
+	font-size: 14px;
+	font-family: "Montserrat", sans-serif;
+}
+
+.book-cover > div {
+	transition: opacity 0s 0.6s;
+}
+
+.book:hover > .book-cover {
+	transform: rotateY(180deg) scale(0.9);
+}
+
+.book:hover > .book-cover > div {
+	opacity: 0;
+}
+
+.book:hover > .book-content {
+	transform: scale(0.9) translateY(0px);
+}
+
+.book:hover > .book-content h3,
+.book:hover > .book-content p {
+	opacity: 1;
+}
+.image1 {
+	width: 210px;
+	border-radius: 10px;
+}
+.image2 {
+	/*width: 380px;
+	border-radius: 10px; */
+	max-width: 100%;
+	height: auto;
+}
+.content-with-image {
+	display: flex;
+	align-items: flex-start;
+}
+
+.image-container {
+	position: relative;
+	display: inline-block;
+}
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	color: #fff;
+}
+.overlay p {
+	padding:20px;
+	font-family: 'Playpen Sans', cursive;
+	opacity: .9;
+	text-align: justify;
+}
+.image-container:hover .overlay {
+	opacity: 1;
+}
+
+</style>
+<body>
+    <!-- <h1>Welcome to Your Dashboard</h1>
+    <p>You are logged in!</p> -->
+      </div>
+    
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>File Security Guidance</title>
+</head>
+<body>
+<main>
+	<div class="book">
+		<div class="book-cover">
+			<div>
+				<h1>File Security Guidance </h1>
+				<div class="separator"></div>
+				<h2>What Sets "SecureFileX" Apart</h2>
+			</div>
+		</div>
+		<div class="book-content">
+			<h3>Introduction</h3>
+			<div class="content-with-image">
+				<p>In an increasingly digital world, the importance of file and cybersecurity cannot be overstated. Cyber threats, including data breaches, identity theft, and ransomware attacks, are becoming more sophisticated and prevalent. Therefore, it is crucial for users to be well-informed and proactive in protecting their personal and sensitive information. This section of our project will focus on the importance of file and cybersecurity and provide essential guidance for users.</p>
+				<img class="image1" src="https://media1.giphy.com/media/RDZo7znAdn2u7sAcWH/giphy.gif" alt="File Security GIF">
+			</div>
+
+			<h3>Significance of User Education in File Security</h3>
+			<p>Users are often the weakest link in the cybersecurity chain. Cybercriminals exploit human vulnerabilities, such as lack of awareness, poor password practices, and social engineering techniques, to gain access to systems and data. By educating users about file security threats and best practices, organizations can significantly reduce their risk of being a victim of a cyberattack.</p>
+
+			<h3>Why is File Security Important? </h3>
+
+			<div class="image-container">
+			<img class="image2" src="https://getsmarteye.com/wp-content/uploads/2021/07/security-2910624_1280.jpeg" alt="File Security Image" style="display: block; margin: 0 auto;">
+			<div class="overlay">
+			<p>Think of file security as your digital bodyguard. It shields your private stuff from nosy intruders, like a strong, invisible wall. It's like a trusty lock on your digital diary, making sure only you can read what's inside. So, your secrets stay safe and sound.</p>
+			</div></div>
+			<ul>
+				<li><b>Confidentiality:</b> It ensures that sensitive and confidential information is not accessed by unauthorized users. This includes personal data, financial information, and other sensitive data that could be used for identity theft or fraud. </li>
+				<li><b>Privacy:</b> By ensuring that data is not accessed by unauthorized users, file security protects the privacy of individuals and organizations. This includes personal information, medical records, and other sensitive data. </li>
+				<li><b>Compliance:</b> Many industries and government regulations require data to be secured. This prevents unauthorized access or data breaches. Failure to comply with these regulations can result in fines and other penalties.</li>
+				<li><b>Intellectual property protection:</b> File security protects intellectual property such as trade secrets, patents, and proprietary information from theft or misuse.</li>
+				<li><b>Reputation:</b> A data breach can damage the reputation of an individual or organization, resulting in loss of trust from customers and clients. </li>
+
+			</ul>
+
+			<h3>Types of File Security Threats</h3>
+			<ul>
+				<li><b>Malware:</b> Malware is malicious software that can damage or disable computers and networks. Malware can be spread through email attachments, infected websites, and USB drives. Common types of malware include viruses, worms, Trojans, ransomware, and spyware.</li>
+				<li><b>Phishing scams:</b> Phishing scams are attempts to trick users into revealing sensitive information, such as passwords and credit card numbers. Phishing scams typically involve sending emails or text messages that appear to be from a legitimate source, such as a bank or government agency.</li>
+				<li><b>Social engineering attacks:</b> Social engineering attacks are attempts to manipulate people into performing actions or divulging confidential information. Social engineering attacks can be carried out in person, over the phone, or online.</li>
+				<li><b>Man-in-the-middle (MitM) attacks:</b> MitM attacks occur when an attacker intercepts communication between two parties and impersonates one of the parties. This can allow the attacker to steal sensitive information or modify data without the knowledge or consent of the original parties.</li>
+				<li><b>Denial-of-service (DoS) attacks:</b> DoS attacks are attempts to overwhelm a system with traffic, making it unavailable to legitimate users. DoS attacks can be targeted at specific systems or networks, or they can be more general, such as a DDoS attack that targets a large number of systems at the same time.</li>
+				<li><b>Insider threats:</b> Insider threats are threats that come from within an organization, such as employees or contractors. Insider threats can be intentional or unintentional. For example, an employee may accidentally leave a laptop containing sensitive data unsecured in a public place.</li>
+
+			</ul>
+
+			<h3>How to Ensure File Security</h3>
+			<div class="image-container">
+			<img class="image2" src="https://pro2-bar-s3-cdn-cf.myportfolio.com/93bea8ef802a988ed8ab44889dc82b83/13d79c62-bf64-42a5-b1e0-3bba1acf8f9b_rw_1200.gif?h=eec2d9f16781bc52a9dd1a85db0c57ec" alt="Ensure Security GIF" style="display: block; margin: 0 auto;">
+			<div class="overlay">
+			<p>File security is the invisible armor safeguarding your digital world. It shields your secrets, keeping them away from the lurking shadows of cyber threats.</p>	
+			</div></div>
+			<ul>
+				<li><b>Data Encryption:</b> Encrypting your files makes them unreadable without the correct decryption key. Use encryption tools to protect sensitive data.</li>
+				<li><b>Access Controls:</b> Access to sensitive data needs to be limited to only authorized users. Administrators can ensure that only authorized individuals can access sensitive data by implementing access controls.</li>
+				<li><b>Incident Response:</b> Many regulations require that organizations have an incident response plan in place in case of a data breach or other security incident. This allows organizations to respond quickly and minimize the impact of a security incident.</li>
+				<li><b>Use Strong Passwords:</b> Set unique and strong passwords for all your accounts and files. Avoid using easily guessable passwords.</li>
+				<li><b>Enable Two-Factor Authentication (2FA):</b> Whenever possible, activate 2FA to add an extra layer of security to your accounts.</li>
+				<li><b>Use Antivirus Software:</b> Install reputable antivirus software to detect and remove malware that can compromise your files.</li>
+				<li><b>Backup Your Data:</b> Regularly back up your files to an external drive or a secure cloud storage service. In case of data loss or ransomware attacks, you can recover your files.</li>
+				<li><b>Educate Yourself:</b> Stay informed about the latest cybersecurity threats and best practices. Knowledge is your best defense.</li>
+			</ul>
+			<h3>How to use our Application</h3>
+			<img src="/static/sf1.gif" alt="" width="500px" height="350px">
+			<ol>1) Generate your password by clicking generate button</ol>
+			<ol>2) Check the Strength of the password</ol>
+			<ol>3) After password generation signup with your active email and strong password</ol>
+			<ol>4) After singup ,login to enter into our website</ol>
+
+			<div class="passinfo">
+				<p>Dont use your personal details for password.Example Arun01.Dont use the complete word as 
+					password.It leads to dictionary attack.For more details about password attack please
+					click the link<a href="https://expertinsights.com/insights/the-8-most-common-types-of-password-attacks/">Password attacks</a>
+				</p>
+			</div>
+
+			<h3>This is our main Page</h3>
+				<img src="/static/sf2.gif" alt="" width="550px" height="350px">
+				
+					<ol><b>1)</b> You can generate the AES key. Our application allows only 32 byte encryption and decryption of both files
+						and messages.
+					</ol>
+					<ol><b>2)</b> You can encrypt the files with aes key size of 32 byte.If you put other than 32 byte it does not encrypt
+						the file.Use same key for decryption also.
+					</ol>
+					<ol><b>3)</b> You can encrypt and decrypt your secret messages.Like if you send the file information 
+						to generate the QR if you encrypt the information it gives more security.
+					</ol>
+					<ol><b>4)</b> You can save your File keys with file name in key manager page.</ol>
+					<img src="/static/sf3.png" alt="" width="400px" height="100px">
+					
+				<p>after giving your registered email you will get mail like this.You can verify the otp pin.If the pin
+					is correct you will see your all keys </p>
+					<ol><b>5)</b> You can generate the QR for your key and file information.This is easy to share both the key and
+					file information.Make sure you encrypt the QR code before sending for more security</ol>
+			<h3>other some features for file security</h3>
+			<img src="/static/sf4.gif" alt="" width="550px" height="350px">
+			<ol><b>1</b>You can check your file integrity by camparing hash value.If you change any single word the whole hash value will 
+			change.You can also store your hashed value in key manager</ol>
+			<ol><b>2)</b>You can upload the file and checks for any malicious or malware code in your file</ol>
+			<ol><b>3)</b>You can watermark your file before you send it to anyone</ol>
+		
+		
+		
+		</div>
+	</div>
+</main>
+</body>
+</html>
+      
+
+</body>
+</html>

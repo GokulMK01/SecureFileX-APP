@@ -1,0 +1,398 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<style>
+    body{
+        /* background-color: #f5f5f5; */
+        background-color: #d7f2ff;
+    }
+    .box{
+    background-color: white;
+    padding-top: 30px;
+    padding: 30px;
+    width: 50%;
+ 
+  }
+  
+input {
+    padding: 20px;
+    user-select: none;
+    height: 50px;
+    width: 400px;
+    border-radius: 6px;
+    border: none;
+    border: 2px solid #37C6FB;
+    outline: none;
+    font-size: 22px;
+    }
+   
+   input::placeholder{
+     font-size: 23px;
+    } 
+    #button {
+        font-family: sans-serif;
+        font-size: 15px;
+        margin-top: 40px;
+        border: 2px solid #37C6FB;
+        width: 155px;
+        height: 50px;
+        text-align: center;
+        background-color: #37C6FB;
+        display: flex;
+        color: rgb(255, 255, 255);
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 5px;  
+      }
+      
+       .btn2{
+         margin-left: 85px
+       }
+      
+      #button:hover {
+        color: white;
+        background-color: black;
+      }
+      .hidden {
+        display: none;
+        /* Add any other styling you need for the hidden state */
+    }
+    
+    #box {
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    }
+  
+
+#passwordInput{
+    width: 40%;
+    display: flex;
+    position: relative;
+}
+ #passwordInput input[type="password"], #passwordInput input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid lightgrey;
+    font-size: 15px;
+    
+}
+
+#passwordInput #showHide{
+  font-size: 12px;
+    font-weight: 600;
+   position: absolute;
+   color:red;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+}
+#passwordStrength{
+    width: 30%;
+    height: 5px;
+    margin: 5px 0;
+    display: none;
+}
+#passwordStrength span{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: lightgrey;
+  border-radius: 5px;
+}
+ #passwordStrength span:nth-child(2){
+  margin: 0 3px;
+}
+#passwordStrength span.active:before{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+#passwordStrength span#poor:before{
+  background-color: #ff4757;
+}
+#passwordStrength span#weak:before{
+  background-color: orange;
+}
+#passwordStrength span#strong:before{
+  background-color: #23ad5c;
+}
+#passwordInfo{
+  font-size: 15px;
+}
+#passwordInfo #poor{
+  color: red;
+}
+#passwordInfo #weak{
+  color: orange;
+}
+#passwordInfo #strong{
+  color: green;
+}
+.image-container #showButton{
+  padding: 10px;
+  width: 320px;
+  height: 35px;
+  margin-top: 20px;
+  border: none;
+  background-color: #37C6FB;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.instructions{
+  background-color: aliceblue;
+}
+.instructions {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+#showButton{
+  padding: 10px;
+  width: 320px;
+  height: 35px;
+  margin-top: 20px;
+  border: none;
+  background-color: #37C6FB;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.image-container {
+    display: flex;
+    flex-direction: column; /* Stack images and info boxes vertically */
+    align-items: center;
+    border-radius: 10px;
+}
+.info{
+    background-color: #f3fcff;
+    border: 2px solid black;
+    padding-top: 1px;
+}
+h5{
+    padding: 2px;
+    
+}
+li {
+  padding-left: 3px;
+}
+
+</style>
+<body>
+    <div class="info">
+        <h5>Welcome to our application SecureFileX-Comprehensive File Security Application</h5>
+        <!-- <h5>Instructions for signup</h5>
+<h6><li>Generate strong password for signup.We provide the password generator.Tou can use by click password generator button</li>
+<li>check the password Strength in password Strength checker</li>
+<li>For more details you can refer in user education ebook after login</li></h6> -->
+
+    </div>
+    <br>
+    <!-- <h1>SecureFileX-The Comprehensive File Security Application</h1> -->
+    <!-- <p><a href="{{ url_for('signup') }}">Sign Up</a></p>
+    <p><a href="{{ url_for('login') }}">Login</a></p> -->
+    <div class="image-container">
+        <img src="static/SecureFileX.gif" alt="" width="350px" height="350px" style="border: 10px solid black;">
+        <br>
+    
+    <button id="showButton">Password Generator</button>
+    <div id="box" class="hidden">
+        <h2>Random Password Generator</h2>
+        <input type="text" name="" placeholder="Create password" id="password" readonly>
+        <table>
+            <th><div id="button" class="btn1" onclick="genPassword()">Generate</div></th>
+            <th><a id="button" class="btn2" onclick="copyPassword()">Copy</a></th>
+        </table>
+    </div>
+    
+    <h3> Password Strength Checker</h3>
+    <div id="passwordInput">
+        <input type="password">
+        <span id="showHide">SHOW</span>
+    </div>
+    <div id="passwordStrength">
+        <span id="poor">P</span>
+        <span id="weak">W</span>
+        <span id="strong">S</span>
+    </div>
+    <br>
+    <div id="passwordInfo"></div>
+</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const imageBoxes = document.querySelectorAll(".image-box");
+
+    imageBoxes.forEach(function(imageBox) {
+        imageBox.addEventListener("click", function() {
+            this.classList.toggle("active");
+        });
+    });
+});
+
+var password=document.getElementById("password");
+
+ function genPassword() {
+    var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var passwordLength = 10;
+    var password = "";
+ for (var i = 0; i <= passwordLength; i++) {
+   var randomNumber = Math.floor(Math.random() * chars.length);
+   password += chars.substring(randomNumber, randomNumber +1);
+  }
+        document.getElementById("password").value = password;
+ }
+
+function copyPassword() {
+  var copyText = document.getElementById("password");
+  copyText.select();
+  document.execCommand("copy");  
+}
+document.addEventListener("DOMContentLoaded", function() {
+    const showButton = document.getElementById("showButton");
+    const container = document.getElementById("box");
+
+    showButton.addEventListener("click", function() {
+        container.classList.toggle("hidden");
+    });
+});
+
+let passwordInput = document.querySelector('#passwordInput input[type="password"]');
+let passwordStrength= document.getElementById('passwordStrength');
+let poor = document.querySelector('#passwordStrength #poor');
+let weak = document.querySelector('#passwordStrength #weak');
+let strong = document.querySelector('#passwordStrength #strong');
+let passwordInfo = document.getElementById('passwordInfo');
+
+let poorRegExp = /[a-z]/;
+let weakRegExp = /(?=.*?[0-9])/;;
+let strongRegExp = /(?=.*?[#?!@$%^&*-])/;
+let whitespaceRegExp = /^$|\s+/;
+
+
+passwordInput.oninput= function(){
+
+     let passwordValue = passwordInput.value;
+     let passwordLength= passwordValue.length;
+
+     let poorPassword= passwordValue.match(poorRegExp);
+     let weakPassword= passwordValue.match(weakRegExp);
+     let strongPassword= passwordValue.match(strongRegExp);
+     let whitespace= passwordValue.match(whitespaceRegExp);
+
+if(passwordValue != ""){
+
+ passwordStrength.style.display = "block";
+ passwordStrength.style.display = "flex";
+ passwordInfo.style.display = "block";
+ passwordInfo.style.color = "black";
+
+ if(whitespace)
+ {
+  passwordInfo.textContent = "whitespaces are not allowed";
+ }else{
+ poorPasswordStrength(passwordLength, poorPassword, weakPassword, strongPassword);
+ weakPasswordStrength(passwordLength, poorPassword, weakPassword, strongPassword);
+ strongPasswordStrength(passwordLength, poorPassword, weakPassword, strongPassword);
+}
+
+ 
+}else{
+ 
+ passwordStrength.style.display = "none";
+ passwordInfo.style.display = "none";
+
+}
+}
+
+function poorPasswordStrength(passwordLength, poorPassword, weakPassword, strongPassword){
+
+  if(passwordLength <= 3 && (poorPassword || weakPassword || strongPassword))
+    {
+   poor.classList.add("active");
+   passwordInfo.style.display = "block";
+   passwordInfo.style.color = "red";
+   passwordInfo.textContent = "Your password is too Poor";
+      
+    }
+}
+
+function weakPasswordStrength(passwordLength, poorPassword, weakPassword, strongPassword){
+if(passwordLength>= 4 && poorPassword && (weakPassword || strongPassword))
+{
+ weak.classList.add("active");
+ passwordInfo.textContent = "Your password is Weak";
+ passwordInfo.style.color = "orange";
+
+}else{
+ weak.classList.remove("active");
+ 
+}
+}
+
+function strongPasswordStrength(passwordLength, poorPassword, weakPassword, strongPassword){
+
+if(passwordLength >= 6 && (poorPassword && weakPassword) && strongPassword)
+{
+ poor.classList.add("active");
+ weak.classList.add("active");
+ strong.classList.add("active");
+ passwordInfo.textContent = "Your password is strong";
+ passwordInfo.style.color = "green";
+}else{
+ strong.classList.remove("active");
+ 
+}
+}
+
+let showHide = document.querySelector('#passwordInput #showHide');
+
+showHide.onclick = function(){
+  showHidePassword()
+}
+
+function showHidePassword(){
+if(passwordInput.type == "password"){
+passwordInput.type = "text";
+showHide.textContent = "HIDE";
+showHide.style.color = "green";
+}else{
+passwordInput.type = "password";
+showHide.textContent = "SHOW";
+showHide.style.color = "red";
+}
+}
+
+    </script>
+</body>
+</html>
+{% endblock %}

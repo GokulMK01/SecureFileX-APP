@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secret Key Generator</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+
+    h1 {
+        text-align: center;
+        padding: 20px;
+        color: #333;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    button[type="submit"],
+    input[type="text"][readonly] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    button[type="submit"] {
+        background-color: #007BFF;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    #result {
+        text-align: center;
+    }
+
+    #result p {
+        font-weight: bold;
+    }
+</style>
+<body>
+    <h1>Secret Key Generator</h1>
+    <form method="POST">
+        <label for="key_length">Enter Key Length :</label>
+        <input type="number" id="key_length" name="key_length" min="1" required>
+        <button type="submit">Generate</button>
+    </form>
+    <div id="result">
+        {% if secret_key %}
+            <p>Generated Secret Key:</p>
+            <input type="text" value="{{ secret_key }}" id="key" readonly>
+            <button onclick="copyToClipboard()">Copy</button>
+        {% endif %}
+    </div>
+    
+    <script>
+        function copyToClipboard() {
+            var keyInput = document.getElementById("key");
+            keyInput.select();
+            document.execCommand("copy");
+            alert("Copied to clipboard: " + keyInput.value);
+        }
+    </script>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encryption/Decryption</title>
+    <!-- <link rel="stylesheet" href="static/style1.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style1.css') }}"> -->
+</head>
+<style>
+    h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.choice-dropdown {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+</style>
+<body>
+    <h2>Encryption/Decryption of Message</h2>
+    <form method="POST">
+        <label for="choice">Select Your Action Encrypt or Decrypt</label>
+        <select name="choice" class="choice-dropdown">
+            <option value="encrypt">Encrypt</option>
+            <option value="decrypt">Decrypt</option>
+        </select><br>
+        <br>
+        <label for="key">Secret Key ({{ KEY_SIZE }} 32 bytes):</label>
+        <input type="text" name="key" required><br>
+        <br>
+        <label for="message">Enter the Message to Encrypt/Decrypt</label>
+        <textarea name="message" rows="4" required></textarea><br>
+        <!-- <input type="submit" value="Submit"> -->
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <!-- {% if result %}
+        <h3>Result:</h3>
+        <p>{{ result }}</p>
+    {% endif %} -->
+    {% if result %}
+        <div class="result-container">
+            <div class="result-box">
+                <h3>Result:</h3>
+                <p>{{ result }}</p>
+            </div>
+        </div>
+    {% endif %}
+</body>
+</html>
+{% endblock %}

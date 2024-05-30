@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<style>
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0074d9; /* Change this to your desired background color */
+      color: #fff; /* Change this to your desired text color */
+      text-decoration: none;
+      border: 2px solid #0074d9; /* Border color matches the background color */
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+    }
+  
+    .button:hover {
+      background-color: #0056b3; /* Change this to the hover background color */
+      border: 2px solid #0056b3; /* Border color on hover */
+    }
+    .box{
+        width: 400px;
+        height: 400px;
+        padding: 20px;
+        margin: 100px auto; 
+        box-shadow: 0px 0px 10px 2px grey;
+        border: 10px solid #00447f;
+       background-image: url(static/fs5.gif);
+       background-size: cover;}
+  </style>
+  
+<body>
+    <!-- <h1>Welcome to Your Dashboard</h1>
+    <p>You are logged in!</p> -->
+    <div class="box">
+        <a href="{{ url_for('eg') }}" class="button">Ebook</a>
+    <a href="{{ url_for('video') }}" class="button">Video</a>
+    <a href="{{ url_for('blog') }}" class="button">Blogs</a>
+
+
+    </div>
+    
+
+    
+</body>
+</html>
+{% endblock %}
